@@ -13,7 +13,7 @@ export async function main(ns) {
     ns.tprint(scanlist)
     ns.tprint(scannedservs)
 
-    var usable = scannedservs.filter(s => ns.getServerMaxRam(s) >= ns.getScriptRam("ehs.script"))
+    var usable = scannedservs.filter(s => ns.getServerMaxRam(s) >= ns.getScriptRam("hack.js"))
     var serv0 = usable.filter(s => ns.getServerNumPortsRequired(s) == 0)
     var serv1 = usable.filter(s => ns.getServerNumPortsRequired(s) == 1)
     var serv2 = usable.filter(s => ns.getServerNumPortsRequired(s) == 2)
@@ -27,10 +27,10 @@ export async function main(ns) {
         let serv = serv0[i];
         let threads = ns.getServerMaxRam(serv) / 2.4;
 
-        await ns.scp("ehs.script", serv);
+        await ns.scp("hack.js", serv);
         ns.killall(serv);
         ns.nuke(serv);
-        ns.exec("ehs.script", serv, threads, 'joesguns');
+        ns.exec("hack.js", serv, threads, 'joesguns');
     }
 
     while (!ns.fileExists("BruteSSH.exe")) {
@@ -41,11 +41,11 @@ export async function main(ns) {
         let serv = serv1[i];
         let threads = ns.getServerMaxRam(serv) / 2.4
 
-        await ns.scp("ehs.script", serv);
+        await ns.scp("hack.js", serv);
         ns.killall(serv);
         ns.brutessh(serv);
         ns.nuke(serv);
-        ns.exec("ehs.script", serv, threads, 'joesguns');
+        ns.exec("hack.js", serv, threads, 'joesguns');
 
     }
 
@@ -58,12 +58,12 @@ export async function main(ns) {
         let threads = ns.getServerMaxRam(serv) / 2.4
 
 
-        await ns.scp("ehs.script", serv);
+        await ns.scp("hack.js", serv);
         ns.killall(serv);
         ns.brutessh(serv);
         ns.ftpcrack(serv);
         ns.nuke(serv);
-        ns.exec("ehs.script", serv, threads, 'joesguns');
+        ns.exec("hack.js", serv, threads, 'joesguns');
 
     }
 
@@ -75,13 +75,13 @@ export async function main(ns) {
         let serv = serv3[i];
         let threads = ns.getServerMaxRam(serv) / 2.4
 
-        await ns.scp("ehs.script", serv);
+        await ns.scp("hack.js", serv);
         ns.killall(serv);
         ns.brutessh(serv);
         ns.ftpcrack(serv);
         ns.relaysmtp(serv);
         ns.nuke(serv);
-        ns.exec("ehs.script", serv, threads, 'the-hub');
+        ns.exec("hack.js", serv, threads, 'the-hub');
     }
 
     while (!ns.fileExists("HTTPWorm.exe")) {
@@ -92,14 +92,14 @@ export async function main(ns) {
         let serv = serv4[i];
         let threads = ns.getServerMaxRam(serv) / 2.4
 
-        await ns.scp("ehs.script", serv);
+        await ns.scp("hack.js", serv);
         ns.killall(serv);
         ns.brutessh(serv);
         ns.ftpcrack(serv);
         ns.relaysmtp(serv);
         ns.httpworm(serv);
         ns.nuke(serv);
-        ns.exec("ehs.script", serv, threads, 'the-hub');
+        ns.exec("hack.js", serv, threads, 'the-hub');
     }
 
     while (!ns.fileExists("SQLInject.exe")) {
@@ -110,7 +110,7 @@ export async function main(ns) {
         let serv = serv4[i];
         let threads = ns.getServerMaxRam(serv) / 2.4
 
-        await ns.scp("ehs.script", serv);
+        await ns.scp("hack.js", serv);
         ns.killall(serv);
         ns.brutessh(serv);
         ns.ftpcrack(serv);
@@ -118,6 +118,6 @@ export async function main(ns) {
         ns.httpworm(serv);
         ns.sqlinject(serv);
         ns.nuke(serv);
-        ns.exec("ehs.script", serv, threads, 'the-hub');
+        ns.exec("hack.js", serv, threads, 'the-hub');
     }
 }
