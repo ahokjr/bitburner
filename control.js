@@ -12,7 +12,7 @@ export async function main(ns) {
     }
     ns.tprint(scanlist)
     ns.tprint(scannedservs)
-
+    var s = 0
     var usable = scannedservs.filter(s => ns.getServerMaxRam(s) >= ns.getScriptRam("hack.js"))
     var serv0 = usable.filter(s => ns.getServerNumPortsRequired(s) == 0)
     var serv1 = usable.filter(s => ns.getServerNumPortsRequired(s) == 1)
